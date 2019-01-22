@@ -1,0 +1,7 @@
+package *
+    ghc-options: -fPIC -fllvm -optl-static -optl-pthread
+    static: true
+    relocatable: true
+    split-sections: true
+    executable-stripping: true
+    shared: false
