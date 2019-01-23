@@ -1,0 +1,17 @@
+language: generic
+sudo: true
+services:
+- docker
+script:
+- while sleep 540; do echo "=====[ $SECONDS seconds still running ]====="; done &
+- "./build.sh"
+- kill %1
+deploy:
+  provider: script
+  script: bash docker_push.sh
+  on:
+    branch: master
+env:
+  global:
+    - secure: "KDC/sFAocrlyXHBjYzJdJ/50P1xP4LIbPUGjZKgIrm0yu8THyEXu4itvu+yGSCGZYYsq6aTLaK/4YJDH25liim/+DqtoAtGX9TJwTbQfYl6PUKP+Imxq2AXOryR6FqxmwqboXj6pTKYo/w0AgNmhR9mqV761fJGSGJq8PcdeVo8DmFLM0uBfxi+KwqTA720B9PvJu6sPajWNF58fPC3L4KpdJFIk1JzH1ytqn3KlmY37rVuC9RlTFI4BoNQRfVJcQnZg4B1H/LcS1OfzL9IItKMMKTm7NsQF4LXGBjA3YkFXYlAkYecKxOhFsarwztEUaiPKVYfbJfpLYDNI7xkxMX1pUrnr6UyeAHB2xegXbsd/U1HxNQ1yZju4gvkTrJDJ4aNfXVkB4UwM8klBcx4JBbcKIee81Ky2wJQ8z+wB04HQz8N4FdLPJMjNqPEv0ggH8LMnnvWDNpBsddTTxjey91E5SAMX/ohbv1QVAdbfAgPrb3tjxdgF8DsDVfNRtuGQk4hFiwS1vk8o2SwNTVZ9Q48efl4GK1lcXAwrq2+CfLFx5Sw1wjp7rVBxGFQfBAVWd2286zRfy2mA1YFk4TVB6+QTPHcFzCU18EXgeLL4l7cmUxbWxHwf6doqmdb+ePW3ucroBxUf1eq0cYjJZn194oF8nFjDCrX8mg99ugcSsNU="
+    - secure: "Xe8+iCLemgbme2x6i/w07yEk9ZphTDl9b9uEfLPI8BM1vbWIgj6BCSmHI38dkjeHYvUesRF65s3nJWLg6acDz+3X2gIHn8Fc5BG4xun6WQqmiWrCTYoOOiV5B41rDILK1eyPwVXiSIzEl3vSp1OotZdB9pwqSK68Apg+7XgaVTbfQXAW1ErHImL+CuU8r4Q8j7k2JLdURZ7HoWpmaxr59wGGmS0zbnyKcABxDsPM6uTF6L+Tr2ESAl4X8a96bBVdha1KcxOQnwDhKF09j3LvVcHhDlT6ilJki3HrTibJmIEwm8Hy+6A9WxQ74NCSoPy2ZvO3FyZKX+l71c+deirL0gx0qHiN7u4EIs02d41qdy/HGK89pIgxrtDKrcKgzBPvQh9FgAu8mRbl3p59XKpKPt7l/hlTSbc3JQ2UBaG3g6/I6tuYjkrfYD8HiIVV1Y2/9+zt0abZUb5rA1AnGXPDKbsDSAw8T50+Xo+OF7ApsIsjoX+HDSs0Dd+uaWzNZK1Skltl9H67WQNQFBP+00KpSf/I/WkeH5JTuyM7n6pNhRF4hewhzHTCRbzEgHW+nO4LfZ4qLlXQcjVtFIvn3+3MxXulp5UwtPtyvNX+ZO/KSBt8ZqMWb2ZxKST7bLkiCTSpQHeqDyNY6DE/gQXzjhfYj0byUM0pGvx45nq9pTDXeTA="
