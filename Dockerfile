@@ -11,4 +11,4 @@ COPY ./cabal.project.local ./
 COPY ./pandoc-crossref.cabal ./
 
 RUN cabal new-update
-RUN cabal new-build --only-dependencies
+RUN cabal new-build --only-dependencies --jobs
