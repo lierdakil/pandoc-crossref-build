@@ -1,7 +1,8 @@
 image: docker:stable
 
 services:
-  - docker:dind
+  - name: docker:dind
+    command: ["--insecure-registry=solar.lan:5000"]
 
 variables:
   CONTAINER_IMAGE: solar.lan:5000/docker-cache/$CI_PROJECT_PATH
@@ -19,7 +20,7 @@ build:
 deploy_staging:
   stage: deploy
   script:
-    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - docker pull $CONTAINER_IMAGE:$CI_COMMIT_SHA || true
     - docker tag $CONTAINER_IMAGE:$CI_COMMIT_SHA lierdakil/pandoc-crossref-build:$CI_COMMIT_SHA
     - docker tag $CONTAINER_IMAGE:$CI_COMMIT_SHA lierdakil/pandoc-crossref-build:staging
