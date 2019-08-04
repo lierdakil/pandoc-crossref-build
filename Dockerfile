@@ -10,7 +10,7 @@ WORKDIR /root
 COPY ./cabal.project.local ./
 COPY ./pandoc-crossref.cabal ./
 
-ENV PANDOC_VER --constraint=pandoc==2.7.*
+ENV PANDOC_VER --constraint=pandoc==2.7.3
 RUN cabal new-update
 RUN cabal new-build pandoc $PANDOC_VER --jobs
 
