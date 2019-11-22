@@ -1,5 +1,5 @@
 FROM lierdakil/alpine-haskell-gmp:8.6.5
-RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && apk --no-cache --update add git upx cabal llvm zlib-dev
+RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && apk --no-cache --update add git upx cabal llvm6 zlib-dev
 
 WORKDIR /root
 
