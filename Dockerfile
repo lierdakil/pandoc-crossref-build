@@ -1,5 +1,5 @@
-FROM alpine:latest
-RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && apk --no-cache --update add musl-dev gmp-dev zlib-dev pcre-dev libc-dev ncurses-dev pcre-dev llvm clang ghc ghc-dev cabal curl git upx
+FROM lierdakil/alpine-haskell-gmp:8.6.5
+RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && apk --no-cache --update add git upx cabal llvm zlib-dev
 
 WORKDIR /root
 
