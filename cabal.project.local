@@ -5,3 +5,5 @@ package *
     split-sections: true
     executable-stripping: true
     shared: false
+package pandoc
+    ghc-options: -fPIC -fasm -optl-static -optl-pthread -j
