@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: edd11ea020cd9236b745c8aa8d2a9728ac41f337c5648fc1d98b28e62e7f4584
+-- hash: 687fe16beac2bf05405a0f58a865e76f50971758d90614f06a51116717839e64
 
 name:           pandoc-crossref
-version:        0.3.4.2
+version:        0.3.5.0
 synopsis:       Pandoc filter for cross-references
 description:    pandoc-crossref is a pandoc filter for numbering figures, equations, tables and cross-references to them.
 category:       Text
@@ -104,8 +104,8 @@ library
     , directory >=1 && <1.4
     , filepath >=1.1 && <1.5
     , mtl >=1.1 && <2.3
-    , pandoc >=2.3 && <2.8
-    , pandoc-types >=1.17.5.1 && <1.18
+    , pandoc >=2.8 && <2.9
+    , pandoc-types >=1.20 && <1.21
     , roman-numerals ==0.5.*
     , syb >=0.4 && <0.8
     , template-haskell >=2.7.0.0 && <3.0.0.0
@@ -135,9 +135,9 @@ executable pandoc-crossref
     , mtl >=1.1 && <2.3
     , open-browser >=0.2 && <0.3
     , optparse-applicative >=0.13 && <0.16
-    , pandoc >=2.3 && <2.8
+    , pandoc >=2.8 && <2.9
     , pandoc-crossref
-    , pandoc-types >=1.17.5.1 && <1.18
+    , pandoc-types >=1.20 && <1.21
     , roman-numerals ==0.5.*
     , syb >=0.4 && <0.8
     , template-haskell >=2.7.0.0 && <3.0.0.0
@@ -163,9 +163,9 @@ test-suite test-integrative
     , filepath >=1.1 && <1.5
     , hspec >=2.4.4 && <3
     , mtl >=1.1 && <2.3
-    , pandoc >=2.3 && <2.8
+    , pandoc >=2.8 && <2.9
     , pandoc-crossref
-    , pandoc-types >=1.17.5.1 && <1.18
+    , pandoc-types >=1.20 && <1.21
     , roman-numerals ==0.5.*
     , syb >=0.4 && <0.8
     , template-haskell >=2.7.0.0 && <3.0.0.0
@@ -212,8 +212,8 @@ test-suite test-pandoc-crossref
     , filepath >=1.1 && <1.5
     , hspec >=2.4.4 && <3
     , mtl >=1.1 && <2.3
-    , pandoc >=2.3 && <2.8
-    , pandoc-types >=1.17.5.1 && <1.18
+    , pandoc >=2.8 && <2.9
+    , pandoc-types >=1.20 && <1.21
     , roman-numerals ==0.5.*
     , syb >=0.4 && <0.8
     , template-haskell >=2.7.0.0 && <3.0.0.0
