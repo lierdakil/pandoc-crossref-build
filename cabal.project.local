@@ -1,9 +1,9 @@
 package *
-    ghc-options: -fPIC -fasm -optl-static -optl-pthread
+    ghc-options: -fPIC -fasm -optl-static -optl-pthread +RTS -A64m -RTS
     static: true
     relocatable: true
     split-sections: true
     executable-stripping: true
     shared: false
 package pandoc
-    ghc-options: -fPIC -fasm -optl-static -optl-pthread -j
+    ghc-options: -fPIC -fasm -optl-static -optl-pthread -j +RTS -A64m -RTS
