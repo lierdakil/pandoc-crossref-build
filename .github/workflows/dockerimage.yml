@@ -9,10 +9,20 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag docker.pkg.github.com/lierdakil/pandoc-crossref-build/pandoc-crossref-build:$GITHUB_SHA
-    - name: Push
       run: |
         docker login docker.pkg.github.com --username lierdakil --password "${{secrets.GITHUB_TOKEN}}"
+        docker pull docker.pkg.github.com/lierdakil/pandoc-crossref-build/pandoc-crossref-build:latest
+        docker build . --cache-from docker.pkg.github.com/lierdakil/pandoc-crossref-build/pandoc-crossref-build:latest --file Dockerfile --tag lierdakil/pandoc-crossref-build:latest
+    - name: Push to github
+      run: |
+        docker login docker.pkg.github.com --username lierdakil --password "${{secrets.GITHUB_TOKEN}}"
+        docker tag lierdakil/pandoc-crossref-build:latest docker.pkg.github.com/lierdakil/pandoc-crossref-build/pandoc-crossref-build:$GITHUB_SHA
+        docker tag lierdakil/pandoc-crossref-build:latest docker.pkg.github.com/lierdakil/pandoc-crossref-build/pandoc-crossref-build:latest
         docker push docker.pkg.github.com/lierdakil/pandoc-crossref-build/pandoc-crossref-build:$GITHUB_SHA
-        docker tag docker.pkg.github.com/lierdakil/pandoc-crossref-build/pandoc-crossref-build:$GITHUB_SHA docker.pkg.github.com/lierdakil/pandoc-crossref-build/pandoc-crossref-build:latest
         docker push docker.pkg.github.com/lierdakil/pandoc-crossref-build/pandoc-crossref-build:latest
+    - name: Push to docker-hub
+      run: |
+        docker login --username lierdakil --password "${{secrets.DOCKER_TOKEN}}"
+        docker tag lierdakil/pandoc-crossref-build:latest lierdakil/pandoc-crossref-build:$GITHUB_SHA
+        docker push lierdakil/pandoc-crossref-build:latest
+        docker push lierdakil/pandoc-crossref-build:$GITHUB_SHA
