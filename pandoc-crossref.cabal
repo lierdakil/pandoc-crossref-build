@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6d604b46f86323a044839e2f8f8c3405ccff9078f8146542e93f512f0d4d9aeb
+-- hash: 119e719fd3e358ccf9f0c1bcd32817597b5b53fff437876fd338492be0f1200e
 
 name:           pandoc-crossref
-version:        0.3.5.0
+version:        0.3.6.2
 synopsis:       Pandoc filter for cross-references
 description:    pandoc-crossref is a pandoc filter for numbering figures, equations, tables and cross-references to them.
 category:       Text
@@ -75,6 +75,7 @@ library
   exposed-modules:
       Text.Pandoc.CrossRef
   other-modules:
+      Data.Accessor.Template
       Text.Pandoc.CrossRef.References
       Text.Pandoc.CrossRef.References.Blocks
       Text.Pandoc.CrossRef.References.List
@@ -98,13 +99,12 @@ library
       base >=4.11 && <5
     , containers >=0.1 && <0.7
     , data-accessor >=0.2.2.6 && <0.3.0.0
-    , data-accessor-template >=0.2.1.12 && <0.3.0.0
     , data-accessor-transformers >=0.2.1.6 && <0.3.0.0
     , data-default >=0.4 && <0.8
     , directory >=1 && <1.4
     , filepath >=1.1 && <1.5
     , mtl >=1.1 && <2.3
-    , pandoc >=2.8 && <2.10
+    , pandoc >=2.9 && <2.10
     , pandoc-types >=1.20 && <1.21
     , roman-numerals ==0.5.*
     , syb >=0.4 && <0.8
@@ -125,7 +125,6 @@ executable pandoc-crossref
       base >=4.11 && <5
     , containers >=0.1 && <0.7
     , data-accessor >=0.2.2.6 && <0.3.0.0
-    , data-accessor-template >=0.2.1.12 && <0.3.0.0
     , data-accessor-transformers >=0.2.1.6 && <0.3.0.0
     , data-default >=0.4 && <0.8
     , deepseq >=1.4 && <1.5
@@ -135,7 +134,7 @@ executable pandoc-crossref
     , mtl >=1.1 && <2.3
     , open-browser >=0.2 && <0.3
     , optparse-applicative >=0.13 && <0.16
-    , pandoc >=2.8 && <2.10
+    , pandoc >=2.9 && <2.10
     , pandoc-crossref
     , pandoc-types >=1.20 && <1.21
     , roman-numerals ==0.5.*
@@ -156,14 +155,13 @@ test-suite test-integrative
       base >=4.11 && <5
     , containers >=0.1 && <0.7
     , data-accessor >=0.2.2.6 && <0.3.0.0
-    , data-accessor-template >=0.2.1.12 && <0.3.0.0
     , data-accessor-transformers >=0.2.1.6 && <0.3.0.0
     , data-default >=0.4 && <0.8
     , directory >=1 && <1.4
     , filepath >=1.1 && <1.5
     , hspec >=2.4.4 && <3
     , mtl >=1.1 && <2.3
-    , pandoc >=2.8 && <2.10
+    , pandoc >=2.9 && <2.10
     , pandoc-crossref
     , pandoc-types >=1.20 && <1.21
     , roman-numerals ==0.5.*
@@ -180,6 +178,7 @@ test-suite test-pandoc-crossref
   main-is: test-pandoc-crossref.hs
   other-modules:
       Native
+      Data.Accessor.Template
       Text.Pandoc.CrossRef
       Text.Pandoc.CrossRef.References
       Text.Pandoc.CrossRef.References.Blocks
@@ -205,14 +204,13 @@ test-suite test-pandoc-crossref
       base >=4.11 && <5
     , containers >=0.1 && <0.7
     , data-accessor >=0.2.2.6 && <0.3.0.0
-    , data-accessor-template >=0.2.1.12 && <0.3.0.0
     , data-accessor-transformers >=0.2.1.6 && <0.3.0.0
     , data-default >=0.4 && <0.8
     , directory >=1 && <1.4
     , filepath >=1.1 && <1.5
     , hspec >=2.4.4 && <3
     , mtl >=1.1 && <2.3
-    , pandoc >=2.8 && <2.10
+    , pandoc >=2.9 && <2.10
     , pandoc-types >=1.20 && <1.21
     , roman-numerals ==0.5.*
     , syb >=0.4 && <0.8
