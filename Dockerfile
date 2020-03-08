@@ -1,5 +1,5 @@
 FROM lierdakil/alpine-haskell-gmp:8.8.3
-RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && apk --no-cache --update add git upx zlib-dev
+RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && apk --no-cache --update add git upx zlib-dev zlib-static
 
 WORKDIR /root
 
