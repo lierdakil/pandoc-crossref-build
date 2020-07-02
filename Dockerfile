@@ -6,7 +6,7 @@ WORKDIR /root
 COPY ./cabal.project.local ./
 COPY ./pandoc-crossref.cabal ./
 
-ENV PANDOC_VER --constraint=pandoc==2.9.2.1
-RUN echo r1 && cabal v2-update
+ENV PANDOC_VER --constraint=pandoc==2.10
+RUN cabal v2-update
 RUN cabal v2-build pandoc $PANDOC_VER --jobs
 RUN cabal v2-build --only-dependencies $PANDOC_VER --jobs --enable-tests
