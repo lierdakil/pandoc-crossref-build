@@ -1,11 +1,11 @@
 package *
-    ghc-options: -fPIC -fasm -optl-static -optl-pthread +RTS -A128m -RTS
+    ghc-options: -fPIC -fasm -optl-static -optl-pthread +RTS -A64m -RTS
     static: true
     relocatable: true
     split-sections: true
     executable-stripping: true
     shared: false
 package pandoc
-    ghc-options: -fPIC -fasm -optl-static -optl-pthread -j +RTS -A128m -RTS
+    ghc-options: -fPIC -fasm -optl-static -optl-pthread -j +RTS -A64m -RTS
 package texmath
-    ghc-options: -fPIC -fasm -optl-static -optl-pthread -j +RTS -A128m -RTS
+    ghc-options: -fPIC -fasm -optl-static -optl-pthread -j +RTS -A64m -RTS

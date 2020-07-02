@@ -1,8 +1,9 @@
-FROM lierdakil/alpine-haskell-gmp:8.8.3
+FROM lierdakil/alpine-haskell-gmp:8.10.1
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && apk --no-cache --update add git upx zlib-dev zlib-static
 
 WORKDIR /root
 
+COPY ./cabal.project ./
 COPY ./cabal.project.local ./
 COPY ./pandoc-crossref.cabal ./
 
